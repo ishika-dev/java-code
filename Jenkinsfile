@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Checkout") {   
             steps {               	 
-                git branch: 'master', url: 'https://github.com/Ramkhushi/java-code1.git'        	 
+                git branch: 'master', url: 'https://github.com/ishika-dev/java-code.git'        	 
             }    
         }
         stage('Maven Clean') {
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('deploy to tomcat') {
             steps {
-              deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://34.125.35.76:8080')], contextPath: 'app12', war: '**/target/*.war'
+              deploy adapters: [tomcat9(credentialsId: 'admin', path: '', url: 'http://localhost:8090/')], contextPath: 'app', war: '**/target/*.war'
             }
         }
     }
